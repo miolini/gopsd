@@ -6,7 +6,7 @@ import (
 	"image"
 	"io/ioutil"
 
-	"github.com/solovev/gopsd/util"
+	"github.com/miolini/gopsd/util"
 )
 
 // TODO all INT -> INT64 (**PSB**)

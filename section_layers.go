@@ -6,7 +6,7 @@ import (
 	"image/color"
 	"math"
 
-	"github.com/solovev/gopsd/util"
+	"github.com/miolini/gopsd/util"
 )
 
 func readLayers(doc *Document) {

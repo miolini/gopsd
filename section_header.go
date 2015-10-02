@@ -1,6 +1,6 @@
 package gopsd
 
-import "github.com/solovev/gopsd/util"
+import "github.com/miolini/gopsd/util"
 
 func readHeader(doc *Document) {
 	if reader.ReadString(4) != "8BPS" {

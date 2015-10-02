@@ -3,7 +3,7 @@ package gopsd
 import (
 	"fmt"
 
-	"github.com/solovev/gopsd/util"
+	"github.com/miolini/gopsd/util"
 )
 
 type LayerSection struct {

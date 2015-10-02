@@ -5,7 +5,7 @@ import (
 	"image"
 	"image/jpeg"
 
-	"github.com/solovev/gopsd/util"
+	"github.com/miolini/gopsd/util"
 )
 
 type IRThumbnail struct {
