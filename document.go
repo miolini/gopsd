@@ -6,7 +6,6 @@ import (
 	"image"
 	"io"
 	"io/ioutil"
-	"log"
 	"github.com/miolini/gopsd/util"
 )
 
@@ -84,7 +83,6 @@ func ParseFromBuffer(buffer []byte) (doc *Document, err error) {
 	readResources(doc)
 	readLayers(doc)
 	readImageData(doc)
-	log.Printf("DEBUG %#v", doc)
 
 	return doc, nil
 }
