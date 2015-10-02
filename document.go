@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"image"
+	"io"
 	"io/ioutil"
-
+	"log"
 	"github.com/miolini/gopsd/util"
 )
 
@@ -17,8 +18,8 @@ type Document struct {
 	Channels  int16 `json:"-"`
 	Height    int32
 	Width     int32
-	Depth     int16       `json:"-"`
-	ColorMode string      `json:"-"`
+	Depth     int16      
+	ColorMode string      
 	Image     image.Image `json:"-"`
 
 	Resources map[int16]interface{} `json:"-"`
@@ -62,24 +63,28 @@ func (d *Document) ToJSON() ([]byte, error) {
 func ParseFromBuffer(buffer []byte) (doc *Document, err error) {
 	defer func() {
 		if r := recover(); r != nil {
+			if r == io.EOF {
+				err = nil
+				return
+			}
 			switch value := r.(type) {
 			case string:
 				err = errors.New(value)
 			case error:
 				err = value
 			}
-			doc = nil
 		}
 	}()
 
 	reader = util.NewReader(buffer)
-
 	doc = new(Document)
 	readHeader(doc)
 	readColorMode(doc)
+
 	readResources(doc)
 	readLayers(doc)
 	readImageData(doc)
+	log.Printf("DEBUG %#v", doc)
 
 	return doc, nil
 }

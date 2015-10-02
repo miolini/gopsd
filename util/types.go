@@ -113,6 +113,7 @@ func newDescriptorList(descriptor *Descriptor, reader *Reader) map[string]*Descr
 			reader.Skip(reader.ReadInt32())
 		case "tdta": // TODO
 			//reader.Skip(reader.ReadInt32())
+			fmt.Printf("skip")
 		default:
 			panic(fmt.Sprintf("Unknown OSType key [%s] in entity [%s]", entity.Type, entity.Key))
 		}
