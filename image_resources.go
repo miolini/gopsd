@@ -2,7 +2,6 @@ package gopsd
 
 import (
 	"bytes"
-	"fmt"
 	"image"
 	"image/jpeg"
 
@@ -70,8 +69,6 @@ func ReadResourceAspectRatio(reader *util.Reader) *IRAspectRatio {
 
 	ratio.Version = reader.ReadInt32()
 	//ratio.Ratio = reader.ReadFloat64()
-
-	fmt.Println(reader.ReadBytes(8))
 
 	return ratio
 }
