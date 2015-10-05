@@ -3,26 +3,26 @@ package gopsd
 import (
 	"encoding/json"
 	"errors"
+	"github.com/miolini/gopsd/util"
 	"image"
 	"io"
 	"io/ioutil"
-	"github.com/miolini/gopsd/util"
 )
 
 // TODO all INT -> INT64 (**PSB**)
 // TODO make([]interface{}, 0) -> var name []interface{}
 type Document struct {
-	IsLarge bool `json:"-"`
+	IsLarge bool `json:"is_large"`
 
-	Channels  int16 `json:"-"`
-	Height    int32
-	Width     int32
-	Depth     int16      
-	ColorMode string      
+	Channels  int16       `json:"channels"`
+	Height    int32       `json:"height"`
+	Width     int32       `json:"width"`
+	Depth     int16       `json:"depth"`
+	ColorMode string      `json:"color_mode"`
 	Image     image.Image `json:"-"`
 
 	Resources map[int16]interface{} `json:"-"`
-	Layers    []*Layer
+	Layers    []*Layer              `json:"layers"`
 }
 
 var (

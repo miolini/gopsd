@@ -230,9 +230,9 @@ func (l Layer) ToString() string {
 }
 
 type Layer struct {
-	ID        int32
-	Name      string
-	Rectangle *util.Rectangle
+	ID        int32           `json:"id"`
+	Name      string          `json:"name"`
+	Rectangle *util.Rectangle `json:"rectangle"`
 	Channels  []*LayerChannel `json:"-"`
 	BlendMode string          `json:"-"`
 	Opacity   byte            `json:"-"`

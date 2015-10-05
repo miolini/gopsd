@@ -232,7 +232,10 @@ type Rectangle struct {
 	bottom int32 `json:"-"`
 	right  int32 `json:"-"`
 
-	X, Y, Width, Height int32
+	X      int32 `json:"x"`
+	Y      int32 `json:"y"`
+	Width  int32 `json:"width"`
+	Height int32 `json:"height"`
 }
 
 func NewRectangle(reader *Reader) *Rectangle {
